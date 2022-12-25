@@ -11,23 +11,12 @@ const MovieInformation = ({route}) => {
   const [dataMovies, setDataMovies] = useState([]);
   const navigation = useNavigation();
   const getTrailer = async (id: string) => {
-    console.log({id});
-
     try {
       await fetch(`https://imdb-api.com/API/Trailer/k_kdt89omq/${id}`)
         .then(response => response.json())
         .then(data => {
-          console.log({data});
-
           setDataMovies(data);
         });
-      dataMovies.map(item => {
-        console.log('item#################################### ', item);
-      });
-
-      // console.log(dataResponse);
-
-      // setData(getMovies);
     } catch (error) {
       console.log({error});
     }
@@ -36,8 +25,6 @@ const MovieInformation = ({route}) => {
   useFocusEffect(
     React.useCallback(() => {
       getTrailer(item.id);
-
-      // console.log('dataaaaaaaaaaaaaaaaa useeffect ', dataMovies.results);
     }, []),
   );
 

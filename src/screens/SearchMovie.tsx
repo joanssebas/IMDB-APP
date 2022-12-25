@@ -13,7 +13,6 @@ const SearchMovie = () => {
   const updateSearch = search => {
     const filteredSearch = search.replace(/[^a-z]/gi, '');
     setSearch(filteredSearch);
-    console.log(search);
   };
 
   // se consume el API que devuelve las peliculas de acuerdo al nombre ingresado
@@ -37,8 +36,6 @@ const SearchMovie = () => {
       if (search.length >= 2) {
         getSearchedMovies(search);
       }
-
-      console.log('dataaaaaaaaaaaaaaaaa useeffect ', dataMovies.results);
     }, [search]),
   );
   return (
